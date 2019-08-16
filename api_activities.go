@@ -85,24 +85,24 @@ func (a *ActivitiesApiService) CreateActivity(ctx context.Context, name string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	localVarFormParams.Add("name", parameterToString(name, ""))
-	localVarFormParams.Add("type", parameterToString(type_, ""))
-	localVarFormParams.Add("start_date_local", parameterToString(startDateLocal, ""))
-	localVarFormParams.Add("elapsed_time", parameterToString(elapsedTime, ""))
+	localVarQueryParams.Add("name", parameterToString(name, ""))
+	localVarQueryParams.Add("type", parameterToString(type_, ""))
+	localVarQueryParams.Add("start_date_local", parameterToString(startDateLocal, ""))
+	localVarQueryParams.Add("elapsed_time", parameterToString(elapsedTime, ""))
 	if localVarOptionals != nil && localVarOptionals.Description.IsSet() {
-		localVarFormParams.Add("description", parameterToString(localVarOptionals.Description.Value(), ""))
+		localVarQueryParams.Add("description", parameterToString(localVarOptionals.Description.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.Distance.IsSet() {
-		localVarFormParams.Add("distance", parameterToString(localVarOptionals.Distance.Value(), ""))
+		localVarQueryParams.Add("distance", parameterToString(localVarOptionals.Distance.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.Trainer.IsSet() {
-		localVarFormParams.Add("trainer", parameterToString(localVarOptionals.Trainer.Value(), ""))
+		localVarQueryParams.Add("trainer", parameterToString(localVarOptionals.Trainer.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.PhotoIds.IsSet() {
-		localVarFormParams.Add("photo_ids", parameterToString(localVarOptionals.PhotoIds.Value(), ""))
+		localVarQueryParams.Add("photo_ids", parameterToString(localVarOptionals.PhotoIds.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.Commute.IsSet() {
-		localVarFormParams.Add("commute", parameterToString(localVarOptionals.Commute.Value(), ""))
+		localVarQueryParams.Add("commute", parameterToString(localVarOptionals.Commute.Value(), ""))
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
