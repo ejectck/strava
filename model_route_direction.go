@@ -9,11 +9,11 @@
 
 package strava
 
-// 
+//
 type RouteDirection struct {
 	// The distance in the route at which the action applies
 	Distance float32 `json:"distance,omitempty"`
 	// The action of this direction
-	Action int32 `json:"action,omitempty"`
-	Name string `json:"name,omitempty"`
+	Action int32  `json:"action,omitempty"`
+	Name   string `json:"name,omitempty"`
 }
