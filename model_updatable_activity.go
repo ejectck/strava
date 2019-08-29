@@ -11,14 +11,15 @@ package strava
 
 type UpdatableActivity struct {
 	// Whether this activity is a commute
-	Commute bool `json:"commute,omitempty"`
+	Commute bool `json:"commute"`
 	// Whether this activity was recorded on a training machine
-	Trainer bool `json:"trainer,omitempty"`
+	Trainer bool `json:"trainer"`
 	// The description of the activity
-	Description string `json:"description,omitempty"`
+	Description string `json:"description"`
 	// The name of the activity
-	Name  string        `json:"name,omitempty"`
-	Type_ *ActivityType `json:"type,omitempty"`
+	Name string `json:"name"`
+	// The type of the activity
+	Type_ *ActivityType `json:"type"`
 	// Identifier for the gear associated with the activity. ‘none’ clears gear from activity
 	GearId string `json:"gear_id,omitempty"`
 }
