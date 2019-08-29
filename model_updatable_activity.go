@@ -22,4 +22,6 @@ type UpdatableActivity struct {
 	Type_ *ActivityType `json:"type"`
 	// Identifier for the gear associated with the activity. ‘none’ clears gear from activity
 	GearId string `json:"gear_id,omitempty"`
+	// The workout type for the activity
+	WorkoutType int `json:"workout_type"`
 }
