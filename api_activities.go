@@ -52,6 +52,7 @@ type CreateActivityOpts struct {
 	PhotoIds    optional.Interface
 	Commute     optional.Int32
 	WorkoutType optional.Int32
+	GearId      optional.String
 }
 
 func (a *ActivitiesApiService) CreateActivity(ctx context.Context, name string, type_ string, startDateLocal interface{}, elapsedTime int32, localVarOptionals *CreateActivityOpts) (DetailedActivity, *http.Response, error) {
@@ -108,6 +109,9 @@ func (a *ActivitiesApiService) CreateActivity(ctx context.Context, name string, 
 	}
 	if localVarOptionals != nil && localVarOptionals.WorkoutType.IsSet() {
 		localVarQueryParams.Add("workout_type", parameterToString(localVarOptionals.WorkoutType.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.GearId.IsSet() {
+		localVarQueryParams.Add("gear_id", parameterToString(localVarOptionals.GearId.Value(), ""))
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {

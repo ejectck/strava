@@ -54,6 +54,7 @@ type CreateUploadOpts struct {
 	Commute     optional.Int32
 	DataType    optional.String
 	ExternalId  optional.String
+	GearId      optional.String
 }
 
 func (a *UploadsApiService) CreateUpload(ctx context.Context, localVarOptionals *CreateUploadOpts) (Upload, *http.Response, error) {
@@ -126,6 +127,9 @@ func (a *UploadsApiService) CreateUpload(ctx context.Context, localVarOptionals 
 	}
 	if localVarOptionals != nil && localVarOptionals.ExternalId.IsSet() {
 		localVarQueryParams.Add("external_id", parameterToString(localVarOptionals.ExternalId.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.GearId.IsSet() {
+		localVarQueryParams.Add("gear_id", parameterToString(localVarOptionals.GearId.Value(), ""))
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
