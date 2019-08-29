@@ -40,6 +40,7 @@ Creates a manual activity for an athlete, requires activity:write scope.
      * @param "Trainer" (optional.Int32) -  Set to 1 to mark as a trainer activity.
      * @param "PhotoIds" (optional.Interface of interface{}) -  List of native photo ids to attach to the activity.
      * @param "Commute" (optional.Int32) -  Set to 1 to mark as commute.
+     * @param "WorkoutType" (optional.Int32) -  Workout type.
 
 @return DetailedActivity
 */
@@ -50,6 +51,7 @@ type CreateActivityOpts struct {
 	Trainer     optional.Int32
 	PhotoIds    optional.Interface
 	Commute     optional.Int32
+	WorkoutType optional.Int32
 }
 
 func (a *ActivitiesApiService) CreateActivity(ctx context.Context, name string, type_ string, startDateLocal interface{}, elapsedTime int32, localVarOptionals *CreateActivityOpts) (DetailedActivity, *http.Response, error) {
@@ -103,6 +105,9 @@ func (a *ActivitiesApiService) CreateActivity(ctx context.Context, name string, 
 	}
 	if localVarOptionals != nil && localVarOptionals.Commute.IsSet() {
 		localVarQueryParams.Add("commute", parameterToString(localVarOptionals.Commute.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.WorkoutType.IsSet() {
+		localVarQueryParams.Add("workout_type", parameterToString(localVarOptionals.WorkoutType.Value(), ""))
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
