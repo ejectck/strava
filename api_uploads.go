@@ -49,6 +49,7 @@ type CreateUploadOpts struct {
 	Name        optional.String
 	Description optional.String
 	Type        optional.String
+	WorkoutType optional.Int32
 	Trainer     optional.Int32
 	Commute     optional.Int32
 	DataType    optional.String
@@ -110,6 +111,9 @@ func (a *UploadsApiService) CreateUpload(ctx context.Context, localVarOptionals 
 	}
 	if localVarOptionals != nil && localVarOptionals.Type.IsSet() {
 		localVarQueryParams.Add("activity_type", parameterToString(localVarOptionals.Type.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.WorkoutType.IsSet() {
+		localVarQueryParams.Add("workout_type", parameterToString(localVarOptionals.WorkoutType.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.Trainer.IsSet() {
 		localVarQueryParams.Add("trainer", parameterToString(localVarOptionals.Trainer.Value(), ""))
